@@ -3,7 +3,7 @@
       <li class="nav-item nav-profile">
         <a href="#" class="nav-link">
           <div class="nav-profile-image">
-            <img src="assets/images/faces/face1.jpg" alt="profile">
+            <img src="{{ asset('assets/dashboard/images/faces/face1.jpg') }}" alt="profile">
             <span class="login-status online"></span>
             <!--change to offline or busy as needed-->
           </div>
@@ -15,7 +15,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('dashboard') }}">
           <span class="menu-title">Dashboard</span>
           <i class="mdi mdi-home menu-icon"></i>
         </a>
@@ -34,32 +34,32 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/icons/mdi.html">
-          <span class="menu-title">Icons</span>
+        <a class="nav-link" href="#">
+          <span class="menu-title">Users</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
-          <span class="menu-title">Forms</span>
-          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        <a class="nav-link" href="#">
+          <span class="menu-title">Cusinies</span>
+          <i class="mdi mdi mdi-food menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartjs.html">
-          <span class="menu-title">Charts</span>
+        <a class="nav-link" href="#">
+          <span class="menu-title">Recipes</span>
           <i class="mdi mdi-chart-bar menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/tables/basic-table.html">
-          <span class="menu-title">Tables</span>
+        <a class="nav-link" href="#">
+          <span class="menu-title">Categories</span>
           <i class="mdi mdi-table-large menu-icon"></i>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-          <span class="menu-title">Sample Pages</span>
+          <span class="menu-title">Sub Categories</span>
           <i class="menu-arrow"></i>
           <i class="mdi mdi-medical-bag menu-icon"></i>
         </a>
