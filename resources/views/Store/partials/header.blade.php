@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dina Wellness | @yield('title')</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/store/img/favicon.ico') }}">
-
-
+   
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">

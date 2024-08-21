@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     deleteForms.forEach(function (form) {
         form.addEventListener("submit", function (event) {
             // Show a confirmation dialog
-            const userConfirmed = confirm("Are you sure you want to delete this user?");
+            const userConfirmed = confirm("Are you sure you want to delete this?");
 
             // If the user cancels, prevent the form submission
             if (!userConfirmed) {

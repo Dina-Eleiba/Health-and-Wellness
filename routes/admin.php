@@ -1,13 +1,9 @@
 <?php
 
-
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
-
-
-
-
 
 
 
@@ -34,3 +30,16 @@ Route::controller(UserController::class)->prefix('/dashboard/users')->name('dash
         Route::put('/edit/{id}', 'update');
         Route::delete('/delete/{id}', 'destroy')->name('delete-user');
     });
+
+// **************************Categories section*********************//
+
+    Route::controller(CategoryController::class)->prefix('/dashboard/categories')->name('dashboard.')
+    ->group(function () {
+        Route::get('/', 'index')->name('categories');
+        Route::get('/create', 'create')->name('create-category');
+        Route::post('/store', 'store')->name('store-category');
+        Route::get('/edit/{id}', 'edit')->name('edit-category');
+        Route::put('/edit/{id}', 'update');
+        Route::delete('/delete/{id}', 'destroy')->name('delete-category');
+    });
+

@@ -40,8 +40,8 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="menu-title">Cusinies</span>
+        <a class="nav-link" href="{{ route('dashboard.categories') }}">
+          <span class="menu-title">Categories</span>
           <i class="mdi mdi mdi-food menu-icon"></i>
         </a>
       </li>
