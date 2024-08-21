@@ -4687,6 +4687,13 @@ textarea.form-control-lg {
   font-size: 0.875rem;
   border-radius: 0.1875rem; }
 
+
+.btn-delete {
+    border: none;
+    background: none;
+    padding:0;
+}
+
 .fade {
   -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear; }
@@ -13306,7 +13313,7 @@ select.form-control {
   padding: .4375rem .75rem;
   border: 0;
   outline: 1px solid #ebedf2;
-  color: #c9c8c8; }
+  color: #161515; }
   select.form-control:focus {
     outline: 1px solid #ebedf2; }
   select.form-control.border-primary {

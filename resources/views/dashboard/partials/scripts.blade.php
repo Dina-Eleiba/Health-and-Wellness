@@ -12,5 +12,7 @@
    <!-- endinject -->
    <!-- Custom js for this page -->
    <script src="{{ asset('assets/dashboard/js/dashboard.js') }}"></script>
+   <script src="{{ asset('assets/dashboard/js/main.js') }}"></script>
    <script src="{{ asset('assets/dashboard/js/todolist.js') }}"></script>
    <!-- End custom js for this page -->
+@stack('js')

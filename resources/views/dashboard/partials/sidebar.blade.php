@@ -34,7 +34,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('dashboard.users') }}">
           <span class="menu-title">Users</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
