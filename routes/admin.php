@@ -22,13 +22,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', [DashboardController::class , 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // **************************Users section*********************//
-
-Route::get('/dashboard/users', [UserController::class, 'index'])->name('dashboard.users');
-Route::get('/dashboard/users/create', [UserController::class, 'create'])->name('dashboard.create-user');
-Route::post('/dashboard/users/store', [UserController::class, 'store'])->name('dashboard.store-user');
-Route::get('/dashboard/users/edit/{id}', [UserController::class, 'edit'])->name('dashboard.edit-user');
-Route::put('/dashboard/users/edit/{id}', [UserController::class, 'update']);
-Route::delete('/dashboard/users/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.delete-user');
+Route::controller(UserController::class)->prefix('/dashboard/users')->name('dashboard.')
+    ->group(function () {
+        Route::get('/', 'index')->name('users');
+        Route::get('/create', 'create')->name('create-user');
+        Route::post('/store', 'store')->name('store-user');
+        Route::get('/edit/{id}', 'edit')->name('edit-user');
+        Route::put('/edit/{id}', 'update');
+        Route::delete('/delete/{id}', 'destroy')->name('delete-user');
+    });
