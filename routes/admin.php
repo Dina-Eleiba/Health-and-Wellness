@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\SubcategoryController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -42,4 +44,17 @@ Route::controller(UserController::class)->prefix('/dashboard/users')->name('dash
         Route::put('/edit/{id}', 'update');
         Route::delete('/delete/{id}', 'destroy')->name('delete-category');
     });
+
+
+// **************************Categories section*********************//
+
+Route::controller(SubcategoryController::class)->prefix('/dashboard/subcategories')->name('dashboard.')
+->group(function () {
+    Route::get('/', 'index')->name('subcategories');
+    Route::get('/create', 'create')->name('create-subcategory');
+    Route::post('/store', 'store')->name('store-subcategory');
+    Route::get('/edit/{id}', 'edit')->name('edit-subcategory');
+    Route::put('/edit/{id}', 'update');
+    Route::delete('/delete/{id}', 'destroy')->name('delete-subcategory');
+});
 

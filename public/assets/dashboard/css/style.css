@@ -14454,4 +14454,12 @@ dl {
   -ms-flex-positive: 1;
   flex-grow: 1; }
 
+
+#imgPreview {
+    margin-top: 15px;
+    width:300px;
+    height:200px;
+
+  }
+
 /*# sourceMappingURL=style.css.map */
