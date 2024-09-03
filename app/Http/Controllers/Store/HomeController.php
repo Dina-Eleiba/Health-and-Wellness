@@ -15,4 +15,6 @@ class HomeController extends Controller
     public function AboutPage() {
         return view('Store.about');
     }
+
+    
 }
