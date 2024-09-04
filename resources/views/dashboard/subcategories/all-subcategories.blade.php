@@ -41,7 +41,7 @@
                                         alt="Subcategory Image"
                                         style="width: 100px; height: 90px;">
                                     </td>
-                                    <td> {{ $subcategory->name }} </td>
+                                    <td> <a href="">{{ $subcategory->name }}</a> </td>
                                     <td> {{ $subcategory->description }} </td>
                                     <td> {{ $subcategory->status }} </td>
                                     <td> {{ $subcategory->category->name }} </td>
