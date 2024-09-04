@@ -13283,7 +13283,7 @@ code {
       background: initial; }
     .dropdown .dropdown-menu .dropdown-item:hover {
       background-color: #f8f9fa;
-      color: #ffffff; }
+       }
 
 /* Forms */
 .form-group {
@@ -14463,3 +14463,9 @@ dl {
   }
 
 /*# sourceMappingURL=style.css.map */
+
+.logout-btn {
+    border:0;
+    background-color: transparent;
+    padding: 0;
+}

@@ -25,15 +25,21 @@
               <span class="availability-status online"></span>
             </div>
             <div class="nav-profile-text">
-              <p class="mb-1 text-black">David Greymaax</p>
+              <p class="mb-1 text-black">{{ Auth::user()->first_name ." ". Auth::user()->last_name }}</p>
             </div>
           </a>
           <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
             <a class="dropdown-item" href="#">
               <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
             <div class="dropdown-divider"></div>
+
             <a class="dropdown-item" href="#">
-              <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <i class="mdi mdi-logout me-2 text-primary"></i>
+                    <button class="logout-btn" type="submit">Signout</button>
+                </form>
+            </a>
           </div>
         </li>
         <li class="nav-item d-none d-lg-block full-screen-link">
