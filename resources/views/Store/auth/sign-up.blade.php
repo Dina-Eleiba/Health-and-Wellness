@@ -14,8 +14,8 @@
                                         class="img-fluid" />
                                 </div>
                                 <div class="col-xl-6">
-                                    <div class="card-body p-md-5 text-black">
-                                        <h3 class="mb-5 text-uppercase">Create An account </h3>
+                                    <div class="card-body p-md-3 text-black">
+                                        <h3 class="mb-5 mt-3 text-uppercase">Create An account </h3>
 
                                         <div class="row">
                                             <div class="col-md-6 mb-4">
@@ -89,19 +89,29 @@
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="text-center pb-5">
+                                    <div class="text-center pb-3">
                                         <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                             class="btn btn-warning btn-lg ms-2">Register</button>
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
-
+                                    <div class="mt-2 d-flex justify-content-center">
+                                        <p class="fw-bold">
+                                            Already have an account ? <a href="{{ route('login') }}">Login</a>
+                                        </p>
+                                    </div>
                     </form>
 
                 </div>
+
             </div>
+
+        </div>
+
+
+
+
+
+        </div>
+        </div>
         </div>
         </div>
     </section>
