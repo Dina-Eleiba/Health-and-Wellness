@@ -26,6 +26,7 @@
                             <th> # </th>
                             <th> name </th>
                             <th> description </th>
+                            <th> actions </th>
                         </tr>
                     </thead>
                     <tbody class="text-center">

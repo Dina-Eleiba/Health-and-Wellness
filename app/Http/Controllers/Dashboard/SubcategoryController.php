@@ -15,7 +15,7 @@ class SubcategoryController extends Controller
 {
     public function index()
     {
-        $subcategories = Subcategory::all();
+        $subcategories = Category::whereNotNull('parent_id')->get();
         return view('dashboard.subcategories.all-subcategories', compact('subcategories'));
     }
 
@@ -24,7 +24,7 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::with('children')->whereNull('parent_id')->get();
         return view('dashboard.subcategories.create-subcategory', compact('categories'));
     }
 
@@ -37,7 +37,7 @@ class SubcategoryController extends Controller
             [
                 'name' => 'required|string',
                 'description' => 'nullable|string',
-                'category_id' => 'required|integer',
+                'parent_id' => 'required|integer',
                 'status' => 'required',
             ]
         );
@@ -47,7 +47,7 @@ class SubcategoryController extends Controller
             $image = Media::UploadMedia($request->file('image'), 'subcategories');
             $data['image'] = $image;
         }
-        Subcategory::create($data);
+        Category::create($data);
         return redirect()->back()->with('success', 'Subcategory created successfully');
     }
 
@@ -57,7 +57,7 @@ class SubcategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $subcategory = Subcategory::findOrFail($id);
+        $subcategory = Category::findOrFail($id);
         return view('dashboard.subcategories.edit-subcategory', compact('subcategory'));
     }
 
@@ -66,7 +66,7 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $subcategory = Subcategory::findOrFail($id);
+        $subcategory = Category::findOrFail($id);
         $data = $request->validate(
             [
                 'name' => 'required|string',
@@ -92,7 +92,7 @@ class SubcategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $subcategory = Subcategory::findOrFail($id);
+        $subcategory = Category::findOrFail($id);
         $subcategory->delete();
         return redirect()->back()->with('success', 'Subcategory deleted successfully');
     }

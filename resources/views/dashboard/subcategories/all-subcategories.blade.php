@@ -44,7 +44,7 @@
                                     <td> <a href="">{{ $subcategory->name }}</a> </td>
                                     <td> {{ $subcategory->description }} </td>
                                     <td> {{ $subcategory->status }} </td>
-                                    <td> {{ $subcategory->category->name }} </td>
+                                    <td>  </td>
                                     <td>
                                         <div class="d-flex justify-content-evenly">
                                             <a href="{{ route('dashboard.edit-subcategory', $subcategory->id) }}">

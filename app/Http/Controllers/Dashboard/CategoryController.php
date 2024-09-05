@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::whereNull('parent_id')->get();
         return view('dashboard.categories.all-categories', compact('categories'));
     }
 
