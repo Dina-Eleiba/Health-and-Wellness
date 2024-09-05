@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'AboutPage'])->name('home.about');
+Route::get('/categories/{slug}', [HomeController::class, 'Categories'])->name('home.categories');
 
 
 // Route::get('/dashboard', function () {

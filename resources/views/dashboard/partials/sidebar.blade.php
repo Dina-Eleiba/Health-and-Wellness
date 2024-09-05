@@ -55,8 +55,8 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">
-                <span class="menu-title">Recipes</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
+                <span class="menu-title">Cusinies</span>
+                <i class="mdi mdi-food-variant menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">

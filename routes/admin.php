@@ -46,7 +46,7 @@ Route::controller(UserController::class)->prefix('/dashboard/users')->name('dash
     });
 
 
-// **************************Categories section*********************//
+// **************************SubCategories section*********************//
 
 Route::controller(SubcategoryController::class)->prefix('/dashboard/subcategories')->name('dashboard.')
 ->group(function () {
@@ -57,4 +57,8 @@ Route::controller(SubcategoryController::class)->prefix('/dashboard/subcategorie
     Route::put('/edit/{id}', 'update');
     Route::delete('/delete/{id}', 'destroy')->name('delete-subcategory');
 });
+
+
+
+
 
