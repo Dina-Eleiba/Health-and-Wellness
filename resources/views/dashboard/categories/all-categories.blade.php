@@ -37,7 +37,7 @@
                                         {{ $loop->iteration }}
                                     </td>
                                     <td> {{ $category->name}} </td>
-                                    <td> {{ $category->description }} </td>
+                                    <td> {{ $category->description ? $category->description : 'N/A' }} </td>
 
                                     <td>
                                         <div class="d-flex justify-content-evenly">
