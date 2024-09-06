@@ -15,7 +15,7 @@
                     </div>
                 @endif
                 <form class="forms-sample" method="POST" action="{{ route('dashboard.store-subcategory') }}"
-                enctype="multipart/form-data">
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -37,9 +37,12 @@
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select class="form-control" id="category" name="parent_id">
-                            <option></option>
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{  $category->name }}</option>
+                            <option value="">Select Category</option>
+                            @foreach ($categories as $category)
+                                @include('dashboard.partials.categories-option', [
+                                    'category' => $category,
+                                    'level' => 0,
+                                ])
                             @endforeach
                         </select>
                     </div>
@@ -47,7 +50,8 @@
                     <div class="form-group position-relative">
                         <label for="image">Image</label>
                         <div class="input-group col-12">
-                            <input type="file" name="image" id="image" class="form-control" placeholder="Upload Image">
+                            <input type="file" name="image" id="image" class="form-control"
+                                placeholder="Upload Image">
                         </div>
                         @error('image')
                             <div class="text-danger font-weight-bold my-2">{{ $message }}</div>

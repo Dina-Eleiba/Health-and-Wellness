@@ -3,7 +3,6 @@
 @section('title', 'All Categories')
 
 @section('content')
-
     <div class="col-lg-12 stretch-card">
         <div class="card">
             <div class="card-body">
@@ -44,7 +43,7 @@
                                     <td> <a href="">{{ $subcategory->name }}</a> </td>
                                     <td> {{ $subcategory->description }} </td>
                                     <td> {{ $subcategory->status }} </td>
-                                    <td>  </td>
+                                    <td> {{ $subcategory->parent->name }} </td>
                                     <td>
                                         <div class="d-flex justify-content-evenly">
                                             <a href="{{ route('dashboard.edit-subcategory', $subcategory->id) }}">

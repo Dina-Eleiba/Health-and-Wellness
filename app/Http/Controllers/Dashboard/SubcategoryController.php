@@ -15,7 +15,7 @@ class SubcategoryController extends Controller
 {
     public function index()
     {
-        $subcategories = Category::whereNotNull('parent_id')->get();
+        $subcategories = Category::whereNotNull('parent_id')->with('parent')->get();
         return view('dashboard.subcategories.all-subcategories', compact('subcategories'));
     }
 
@@ -24,7 +24,7 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::with('children')->whereNull('parent_id')->get();
+        $categories = Category::tree()->get()->toTree();
         return view('dashboard.subcategories.create-subcategory', compact('categories'));
     }
 
