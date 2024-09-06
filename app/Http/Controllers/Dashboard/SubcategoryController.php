@@ -94,6 +94,7 @@ class SubcategoryController extends Controller
     public function destroy(string $id)
     {
         $subcategory = Category::findOrFail($id);
+        Media::deleteMedia($subcategory->image, 'subcategories');
         $subcategory->delete();
         return redirect()->back()->with('success', 'Subcategory deleted successfully');
     }

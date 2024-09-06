@@ -2,7 +2,6 @@
 
 
 @section('content')
-
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
@@ -56,23 +55,27 @@
                     </div>
                 </div>
             </div>
+            <div class="mb-4">
+                <h3> Browse by categories</h3>
+            </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-                            <div class="product__label">
-                                <span>Cupcake</span>
+                @foreach ($subcategories as $subcategory)
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <a href="#">
+                            <div class="product__item">
+                                <div class="set-bg">
+                                    <img class="product__item__pic" src ="{{ asset('assets/images/subcategories/' . $subcategory->image) }}">
+                                </div>
+                                <div class="text-center mt-2">
+                                    <p>{{ $subcategory->name }}</p>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Dozen Cupcakes</a></h6>
-                            <div class="product__item__price">$32.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
-                        </div>
+
+                        </a>
+
                     </div>
-                </div>
+                @endforeach
             </div>
             <div class="shop__last__option">
                 <div class="row">
@@ -94,5 +97,4 @@
         </div>
     </section>
     <!-- Shop Section End -->
-
 @endsection

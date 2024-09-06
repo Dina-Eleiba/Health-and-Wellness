@@ -23,7 +23,9 @@ class HomeController extends Controller
 
     public function Categories($slug) {
         $category = Category::where('slug', $slug)->first();
-        return view('Store.category', compact('category'));
-
+        $subcategories = $category->descendants()->paginate(6);
+        return view('Store.shop', compact('category', 'subcategories'));
     }
+
+    
 }
