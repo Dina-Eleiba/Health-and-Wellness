@@ -71,7 +71,7 @@
                         <li class="active"><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('home.about') }}">About</a></li>
                         @php
-                            $categories = \App\Models\Category::where('status', 'available')->get();
+                            $categories = \App\Models\Category::whereNull('parent_id')->get();
                         @endphp
                         @foreach ($categories as $category)
                             <li>
