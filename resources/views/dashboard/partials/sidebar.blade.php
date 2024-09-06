@@ -20,7 +20,7 @@
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
-      
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard.users') }}">
                 <span class="menu-title">Users</span>
@@ -37,6 +37,13 @@
             <a class="nav-link" href="{{ route('dashboard.subcategories') }}">
                 <span class="menu-title">Subcategories</span>
                 <i class="mdi  mdi-folder-multiple menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard.brands') }}">
+                <span class="menu-title">Brands</span>
+                <i class="mdi mdi-note-text menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">

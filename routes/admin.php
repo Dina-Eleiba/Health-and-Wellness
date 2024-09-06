@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SubcategoryController;
@@ -57,6 +58,21 @@ Route::controller(SubcategoryController::class)->prefix('/dashboard/subcategorie
     Route::put('/edit/{id}', 'update');
     Route::delete('/delete/{id}', 'destroy')->name('delete-subcategory');
 });
+
+
+
+// **************************Brands section*********************//
+
+Route::controller(BrandController::class)->prefix('/dashboard/brands')->name('dashboard.')
+->group(function () {
+    Route::get('/', 'index')->name('brands');
+    Route::get('/create', 'create')->name('create-brand');
+    Route::post('/store', 'store')->name('store-brand');
+    Route::get('/edit/{id}', 'edit')->name('edit-brand');
+    Route::put('/edit/{id}', 'update');
+    Route::delete('/delete/{id}', 'destroy')->name('delete-brand');
+});
+
 
 
 
