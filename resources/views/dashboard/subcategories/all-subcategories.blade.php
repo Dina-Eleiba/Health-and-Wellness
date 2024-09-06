@@ -39,7 +39,7 @@
                                         <img src="{{ asset('assets/images/subcategories/' . $subcategory->image) }}"
                                             alt="Subcategory Image" style="width: 100px; height: 90px;">
                                     </td>
-                                    <td> <a href="">{{ $subcategory->name }}</a> </td>
+                                    <td> <a href="#" class="text-decoration-none text-dark">{{ $subcategory->name }}</a> </td>
                                     <td> {{ $subcategory->description ? $subcategory->description : 'N/A' }} </td>
                                     <td> {{ $subcategory->status }} </td>
                                     <td>

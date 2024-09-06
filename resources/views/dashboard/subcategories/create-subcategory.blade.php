@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status">
-                            <option></option>
+                            <option> Select Status</option>
                             <option>Available</option>
                             <option>Not available</option>
                         </select>

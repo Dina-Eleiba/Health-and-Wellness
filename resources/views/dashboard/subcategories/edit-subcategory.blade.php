@@ -4,7 +4,7 @@
 
 
 @section('content')
-
+    {{-- {{ dd($subcategory) }} --}}
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -40,8 +40,13 @@
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select class="form-control" id="category" name="category_id">
-                            <option value="{{ $subcategory->category->id }}">{{ $subcategory->category->name }}</option>
-
+                            <option value="{{ $subcategory->parent->id }}">{{ $subcategory->parent->name }}</option>
+                            @foreach ($categories as $category)
+                                    @include('dashboard.partials.categories-option', [
+                                        'category' => $category,
+                                        'level' => 0,
+                                    ])
+                            @endforeach
                         </select>
                     </div>
 
@@ -51,7 +56,8 @@
                             <input type="file" name="image" id="image" class="form-control"
                                 placeholder="Upload Image" value="">
                         </div>
-                        <img id ="imgPreview" src="{{asset('assets/images/subcategories/'.$subcategory->image)}}" alt="" width="300px" height="200px">
+                        <img id ="imgPreview" src="{{ asset('assets/images/subcategories/' . $subcategory->image) }}"
+                            alt="" width="300px" height="200px">
 
                         @error('image')
                             <div class="text-danger font-weight-bold my-2">{{ $message }}</div>
@@ -61,7 +67,7 @@
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status">
-                            <option></option>
+                            <option> Select Status</option>
                             <option @selected($subcategory->status === 'Available')>Available</option>
                             <option @selected($subcategory->status === 'Not available')>Not available</option>
                         </select>
@@ -81,27 +87,20 @@
 
 
 @push('js')
+    <script>
+        $(document).ready(function() {
+            $("#image").change(function() {
+                if (this.files && this.files[0]) {
 
-<script>
+                    var reader = new FileReader();
 
-$(document).ready(function() {
-    $("#image").change(function() {
-    if (this.files && this.files[0]) {
+                    reader.onload = function(e) {
+                        $('#imgPreview').attr('src', e.target.result);
+                    }
 
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            $('#imgPreview').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(this.files[0]);
-    }
-});
-});
-
-
-
-
-</script>
-
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+    </script>
 @endpush

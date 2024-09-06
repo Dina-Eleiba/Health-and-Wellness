@@ -57,8 +57,9 @@ class SubcategoryController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = Category::tree()->get()->toTree();
         $subcategory = Category::findOrFail($id);
-        return view('dashboard.subcategories.edit-subcategory', compact('subcategory'));
+        return view('dashboard.subcategories.edit-subcategory', compact('subcategory', 'categories'));
     }
 
     /**
