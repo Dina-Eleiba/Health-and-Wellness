@@ -37,13 +37,20 @@
                                     </td>
                                     <td>
                                         <img src="{{ asset('assets/images/subcategories/' . $subcategory->image) }}"
-                                        alt="Subcategory Image"
-                                        style="width: 100px; height: 90px;">
+                                            alt="Subcategory Image" style="width: 100px; height: 90px;">
                                     </td>
                                     <td> <a href="">{{ $subcategory->name }}</a> </td>
-                                    <td> {{ $subcategory->description }} </td>
+                                    <td> {{ $subcategory->description ? $subcategory->description : 'N/A' }} </td>
                                     <td> {{ $subcategory->status }} </td>
-                                    <td> {{ $subcategory->parent->name }} </td>
+                                    <td>
+                                        @if (is_null($subcategory->parent->parent_id))
+                                            Main Category : <br> <br>
+                                            {{ $subcategory->parent->name }}
+                                        @else
+                                            SubCategory:  <br> <br>
+                                            {{ $subcategory->parent->name }}
+                                        @endif
+                                    </td>
                                     <td>
                                         <div class="d-flex justify-content-evenly">
                                             <a href="{{ route('dashboard.edit-subcategory', $subcategory->id) }}">
