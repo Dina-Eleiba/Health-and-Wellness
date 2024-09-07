@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\SubcategoryController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,19 @@ Route::controller(BrandController::class)->prefix('/dashboard/brands')->name('da
     Route::get('/edit/{id}', 'edit')->name('edit-brand');
     Route::put('/edit/{id}', 'update');
     Route::delete('/delete/{id}', 'destroy')->name('delete-brand');
+});
+
+
+// **************************Brands section*********************//
+
+Route::controller(ProductController::class)->prefix('/dashboard/products')->name('dashboard.')
+->group(function () {
+    Route::get('/', 'index')->name('products');
+    Route::get('/create', 'create')->name('create-product');
+    Route::post('/store', 'store')->name('store-product');
+    Route::get('/edit/{id}', 'edit')->name('edit-product');
+    Route::put('/edit/{id}', 'update');
+    Route::delete('/delete/{id}', 'destroy')->name('delete-product');
 });
 
 
