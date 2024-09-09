@@ -58,17 +58,21 @@
             </div>
             <div class="row">
                 @foreach($products as $product)
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-lg-3 col-md-6 col-sm-6 text-center">
                     <div class="product__item">
                         <div class="product__item__pic set-bg">
-                            <img class="product__item__pic" src ="{{ asset('assets/images/products/' . $product->image) }}">
+                            <a href="#">
+                                <img class="product__item__pic" src ="{{ asset('assets/images/products/' . $product->image) }}">
+                            </a>
                         </div>
                         <div class="product__item__text">
                             <h6><a href="#">{{ $product->name }}</a></h6>
-                            <div class="product__item__price">{{ $product->price }}</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
+                            <div class="">{{ $product->quantity }}  {{ $product->weight_unit }} </div>
+
+                            <div class="product__item__price">{{ $product->price }} EGP </div>
+                        </div>
+                        <div class="cart_add">
+                            <a href="#">Add to cart</a>
                         </div>
                     </div>
                     </div>
