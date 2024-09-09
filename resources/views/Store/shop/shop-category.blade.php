@@ -61,7 +61,7 @@
             <div class="row">
                 @foreach ($subcategories as $subcategory)
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <a href="#">
+                        <a href="{{ route('home.shop.products', [$category->slug , $subcategory->slug]) }}">
                             <div class="product__item">
                                 <div class="set-bg">
                                     <img class="product__item__pic" src ="{{ asset('assets/images/subcategories/' . $subcategory->image) }}">
@@ -69,7 +69,6 @@
                                 <div class="text-center mt-2">
                                     <p>{{ $subcategory->name }}</p>
                                 </div>
-
                             </div>
 
                         </a>

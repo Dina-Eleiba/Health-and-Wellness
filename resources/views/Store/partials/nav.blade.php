@@ -75,7 +75,7 @@
                         @endphp
                         @foreach ($categories as $category)
                             <li>
-                                <a href="{{ route('home.categories', $category->slug) }}">{{ $category->name }}</a>
+                                <a href="{{ route('home.shop', $category->slug) }}">{{ $category->name }}</a>
                             </li>
                         @endforeach
 
