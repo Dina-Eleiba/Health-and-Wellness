@@ -25,7 +25,8 @@ Route::get('/categories/{slug}', [ShopController::class, 'index'])->name('home.s
 Route::get('/categories/{category}/{subcategory}', [ShopController::class, 'shopByCategory'])
 ->name('home.shop.products');
 
-
+Route::get('/categories/{category}/{subcategory}/products/{slug}', [ShopController::class, 'ProductDetails'])
+->name('home.shop.product-details');
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -21,6 +22,21 @@ class ShopController extends Controller
         $products = $subcategory->products()->paginate(9);
         return view('Store.shop.shop', compact('category', 'subcategory', 'products'));
    }
+
+
+   public function ProductDetails($category, $subcategory, $slug) {
+    $product = Product::where('slug', $slug)->first();
+    $category = $product->Category;
+    $relatedProducts = Product::where('category_id', $category->id)
+    ->where('id', '!=', $product->id)->paginate(4);
+    return view('Store.shop.product-details', compact('product', 'category', 'relatedProducts'));
+
+
+
+}
+
+
+
 
 
 

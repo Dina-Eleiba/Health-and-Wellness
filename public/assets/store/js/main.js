@@ -132,6 +132,7 @@
     /*---------------------------------
         Related Products Slider
     ----------------------------------*/
+    
     $(".related__products__slider").owlCarousel({
         loop: true,
         margin: 0,
@@ -224,7 +225,7 @@
         $button.parent().find('input').val(newVal);
     });
 
-    
+
 
     $(".product__details__thumb").niceScroll({
         cursorborder: "",

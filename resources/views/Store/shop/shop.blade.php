@@ -61,12 +61,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 text-center">
                     <div class="product__item">
                         <div class="product__item__pic set-bg">
-                            <a href="#">
+                            <a href="{{ route('home.shop.product-details', [$category->slug , $subcategory->slug, $product->slug]) }}">
                                 <img class="product__item__pic" src ="{{ asset('assets/images/products/' . $product->image) }}">
                             </a>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">{{ $product->name }}</a></h6>
+                            <h6><a href="{{ route('home.shop.product-details', [$category->slug , $subcategory->slug, $product->slug]) }}">{{ $product->name }}</a></h6>
                             <div class="">{{ $product->quantity }}  {{ $product->weight_unit }} </div>
 
                             <div class="product__item__price">{{ $product->price }} EGP </div>

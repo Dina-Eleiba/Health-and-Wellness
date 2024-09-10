@@ -7,3 +7,4 @@
 <script src="{{ asset('assets/store/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/store/js/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ asset('assets/store/js/main.js') }}"></script>
+@stack('js')
