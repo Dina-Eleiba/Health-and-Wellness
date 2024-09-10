@@ -32,9 +32,9 @@
                             <form action="#">
                                 <select>
                                     <option value="">Categories</option>
-                                    <option value="">Red Velvet</option>
-                                    <option value="">Cup Cake</option>
-                                    <option value="">Biscuit</option>
+                                    @foreach ($subcategories as $subcategory)
+                                    <option value="">{{ $subcategory->name  }}</option>
+                                    @endforeach
                                 </select>
                                 <input type="text" placeholder="Search">
                                 <button type="submit"><i class="fa fa-search"></i></button>
