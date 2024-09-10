@@ -75,7 +75,7 @@ Route::controller(BrandController::class)->prefix('/dashboard/brands')->name('da
 });
 
 
-// **************************Brands section*********************//
+// **************************Products section*********************//
 
 Route::controller(ProductController::class)->prefix('/dashboard/products')->name('dashboard.')
 ->group(function () {
@@ -86,6 +86,8 @@ Route::controller(ProductController::class)->prefix('/dashboard/products')->name
     Route::put('/edit/{id}', 'update');
     Route::delete('/delete/{id}', 'destroy')->name('delete-product');
 });
+
+
 
 
 

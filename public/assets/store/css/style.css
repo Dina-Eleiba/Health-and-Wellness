@@ -133,6 +133,7 @@ ol {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+
 }
 
 .spad {
@@ -1213,6 +1214,11 @@ ol {
 -----------------------*/
 .footer {
     padding-top: 70px;
+    background:
+    linear-gradient(rgba(0, 0, 0,85%), rgba(0, 0, 0, 85%)),
+     url('../img/footer-bg.jpg') no-repeat  center center;
+     background-size: cover;
+
 }
 
 .footer__widget {
@@ -1266,6 +1272,11 @@ ol {
 
 .footer__about .footer__logo a {
     display: inline-block;
+}
+
+.footer__about .footer__logo img {
+    height: 150px;
+    width: 150px;
 }
 
 .footer__about p {
