@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function cart()
+    public function viewCart()
     {
+        $cart = session()->get('cart');
+        return view('store.cart', compact('cart'));
 
     }
 

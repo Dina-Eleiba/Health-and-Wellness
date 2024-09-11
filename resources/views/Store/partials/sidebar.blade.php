@@ -17,7 +17,7 @@
                                     <span class="product-image-container" style="width: 75px;">
                                         <span class="product-image-wrapper" style="padding-bottom: 100%;">
                                             <img class="product-image-photo"
-                                                src="{{ asset('assets/store/img/cake-piece.png') }}"
+                                                src="{{ asset('assets/images/products/' . $item['image']) }}"
                                                 alt="T-shirt Contrast Pocket">
                                         </span>
                                     </span>
@@ -50,10 +50,10 @@
 
 
 
-                                <div class="quantity__item">
+                                <div class="quantity_item">
                                     <div class="quantity">
                                         <div class="pro-qty">
-                                            <input type="number" value="{{ $item['quantity'] }}" readonly>
+                                            <input type="number" class="quantity__input " value="{{ $item['quantity'] }}" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                         <li>Total <span>EGP {{ session()->get('total') }}</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Proceed to checkout</a>
-                    <a href="#" class="primary-btn mt-3">View cart</a>
+                    <a href="{{ route('home.cart') }}" class="primary-btn mt-3">View cart</a>
 
                 </div>
             @else

@@ -30,7 +30,8 @@ Route::get('/categories/{category}/{subcategory}', [ShopController::class, 'shop
 Route::get('/categories/{category}/{subcategory}/products/{slug}', [ShopController::class, 'ProductDetails'])
 ->name('home.shop.product-details');
 
-
+Route::get('/cart', [CartController::class, 'viewCart'])
+->name('home.cart');
 Route::post('/cart', [CartController::class, 'addToCart'])
 ->name('home.add-to-cart');
 

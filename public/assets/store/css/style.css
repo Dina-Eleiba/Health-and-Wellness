@@ -4486,12 +4486,13 @@ ol {
     margin-left: 34px;
 }
 
-.quantity__item  {
+.quantity_item {
     margin: auto;
+    text-align: center;
 
 }
 
-.quantity__item input {
+.quantity__input  {
     width: 140px;
     text-align: center;
     margin: 10px;
