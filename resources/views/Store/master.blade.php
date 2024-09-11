@@ -62,8 +62,12 @@
     @include('Store.partials.search')
     <!-- Search End -->
 
+    @include('Store.partials.sidebar')
+
     <!-- Js Plugins -->
     @include('Store.partials.scripts')
+
+
 
 </body>
 

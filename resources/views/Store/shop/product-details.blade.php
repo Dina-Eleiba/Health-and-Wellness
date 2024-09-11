@@ -1,6 +1,11 @@
 @extends('Store.master')
 
 @section('content')
+    @if (session()->has('message'))
+        <div class="alert alert-success w-50 text-center m-auto">
+            {{ session('message') }}
+        </div>
+    @endif
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
@@ -68,12 +73,17 @@
                         <li>Tags: <span>Gadgets, minimalisstic</span></li>
                     </ul> --}}
                         <div class="product__details__option mt-5">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="2">
+
+                            <form method="POST" action="{{ route('home.add-to-cart') }}">
+                                @csrf
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="number" name="quantity" value="1" min="1">
+                                    </div>
                                 </div>
-                            </div>
-                            <a href="#" class="primary-btn">Add to cart</a>
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <button type="submit" class="primary-btn">Add to cart</button>
+                            </form>
                             <a href="#" class="heart__btn"><span class="icon_heart_alt"></span></a>
                         </div>
                     </div>
@@ -149,4 +159,3 @@
     </section>
     <!-- Related Products Section End -->
 @endsection
-

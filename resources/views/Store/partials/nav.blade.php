@@ -46,15 +46,16 @@
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img
+                                <a href="#" class="search-switch" ><img
                                         src="{{ asset('assets/store/img/icon/search.png') }}" alt=""></a>
                                 <a href="#"><img src="{{ asset('assets/store/img/icon/heart.png') }}"
                                         alt=""></a>
                             </div>
                             <div class="header__top__right__cart">
-                                <a href="#"><img src="{{ asset('assets/store/img/icon/cart.png') }}"
-                                        alt=""> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
+                                <a href="#" id="cart-icon"><img src="{{ asset('assets/store/img/icon/cart.png') }}"
+                                        alt=""> <span>{{ session()->get('cart_count') }}
+                                        </span></a>
+                                <div class="cart__price">Cart: <span>EGP {{ session()->get('total') }}</span></div>
                             </div>
                         </div>
                     </div>

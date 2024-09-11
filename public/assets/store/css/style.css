@@ -164,6 +164,7 @@ ol {
     color: #ffffff;
     background: #f08632;
     letter-spacing: 2px;
+    border:none;
 }
 
 .site-btn {
@@ -461,7 +462,7 @@ ol {
     font-weight: 600;
     position: absolute;
     left: 7px;
-    top: 4px;
+    top: 5px;
 }
 
 .header__top__right__cart .cart__price {
@@ -1748,6 +1749,7 @@ ol {
 
 .product__details__option {
     overflow: hidden;
+    display: flex;
 }
 
 .product__details__option .quantity {
@@ -4416,4 +4418,89 @@ ol {
 
 .card-registration .select-arrow {
     top: 13px;
+}
+
+
+/* Sidebar container */
+.cart-sidebar {
+    height: 100%; /* Full height */
+    width: 0; /* Initially hidden */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    top: 0;
+    right: 0;
+    background-color: #ffffff; /* Sidebar background color */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* Smooth transition */
+    padding-top: 60px; /* Padding at the top */
+    border: 1px solid #6666662e;
+}
+
+/* Sidebar content */
+.cart-sidebar__content {
+    color: rgb(18, 18, 18);
+    padding: 20px;
+}
+
+/* Close button */
+.cart-sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+/* Open the sidebar (width: 300px) */
+.cart-sidebar.open {
+    width: 400px;
+}
+
+.cart-list {
+    list-style-type: none;
+
+}
+
+
+
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    background-color: #72707017;
+    margin-top: 50px;
+}
+.list {
+    background-color: #72707017;
+}
+
+.product-image-photo {
+    width: 83px;
+    height: 73px;
+    margin-right: 20px;
+    padding-left: 15px;
+}
+
+
+.secondary {
+    font-size: 20px;
+    margin-left: 34px;
+}
+
+.quantity__item  {
+    margin: auto;
+
+}
+
+.quantity__item input {
+    width: 140px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+.product-item-details
+{
+    width:182px;
+    margin-bottom: 25px;
+
 }
