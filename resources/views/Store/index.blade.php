@@ -499,39 +499,39 @@
                             <span>Follow us on instagram</span>
                             <h2>Sweet moments are saved as memories.</h2>
                         </div>
-                        <h5><i class="fa fa-instagram"></i> @sweetcake</h5>
+                        <h5><i class="fa fa-instagram"></i> <a href="https://www.instagram.com/withdinawellness?igsh=a20wamp6cnQwanMz">Dina wellness</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="instagram__pic">
-                                <img src="{{ asset('assets/store/img/instagram/instagram-1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/store/img/instagram/instagram1.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="instagram__pic middle__pic">
-                                <img src="{{ asset('assets/store/img/instagram/instagram-2.jpg') }}" alt="">
+                                <img src="{{ asset('assets/store/img/instagram/instagram2.jpeg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="instagram__pic">
-                                <img src="{{ asset('assets/store/img/instagram/instagram-3.jpg') }}" alt="">
+                                <img src="{{ asset('assets/store/img/instagram/instagram3.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="instagram__pic">
-                                <img src="{{ asset('assets/store/img/instagram/instagram-4.jpg') }}" alt="">
+                                <img src="{{ asset('assets/store/img/instagram/instagram4.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="instagram__pic middle__pic">
-                                <img src="{{ asset('assets/store/img/instagram/instagram-5.jpg') }}" alt="">
+                                <img src="{{ asset('assets/store/img/instagram/instagram5.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                             <div class="instagram__pic">
-                                <img src="{{ asset('assets/store/img/instagram/instagram-3.jpg') }}" alt="">
+                                <img src="{{ asset('assets/store/img/instagram/instagram6.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -547,11 +547,11 @@
             <div class="row">
                 <div class="col-lg-4 col-md-7">
                     <div class="map__inner">
-                        <h6>COlorado</h6>
+                        <h6>Dina wellness</h6>
                         <ul>
-                            <li>1000 Lakepoint Dr, Frisco, CO 80443, USA</li>
-                            <li>Sweetcake@support.com</li>
-                            <li>+1 800-786-1000</li>
+                            <li>Cairo , Egypt</li>
+                            <li>dina-wellness@suppport.com</li>
+                            <li>01203555145</li>
                         </ul>
                     </div>
                 </div>
