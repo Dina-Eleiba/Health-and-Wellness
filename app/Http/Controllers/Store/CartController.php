@@ -12,11 +12,11 @@ class CartController extends Controller
     {
         $cart = session()->get('cart');
         return view('store.cart', compact('cart'));
-
     }
 
     public function addToCart(Request $request)
     {
+        //still has things to add if user is login
         $product = Product::where('id', $request->product_id)->first();
         $cart = session()->get('cart', []);
         $cart[$request->product_id] = [
@@ -38,4 +38,24 @@ class CartController extends Controller
     }
 
 
+    public function removeFromCart($id)
+    {
+        $cart = session()->get('cart');
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            $cart_count = count($cart);
+            $total = 0;
+            foreach ($cart as $item) {
+                $total += $item['price'] * $item['quantity'];
+            }
+            session()->put(
+                [
+                    'cart' => $cart,
+                    'cart_count' => $cart_count,
+                    'total' => $total,
+                ]);
+            return redirect()->back()->with(['message' => 'Product deleted from cart successfully']);
+        }
+        return redirect()->back()->with(['message' => 'Product not found in cart']);
+    }
 }

@@ -34,6 +34,8 @@ Route::get('/cart', [CartController::class, 'viewCart'])
 ->name('home.cart');
 Route::post('/cart', [CartController::class, 'addToCart'])
 ->name('home.add-to-cart');
+Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
+->name('home.remove-from-cart');
 
 
 Route::middleware('auth')->group(function () {

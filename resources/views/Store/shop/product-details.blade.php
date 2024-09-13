@@ -1,11 +1,6 @@
 @extends('Store.master')
 
 @section('content')
-    @if (session()->has('message'))
-        <div class="alert alert-success w-50 text-center m-auto">
-            {{ session('message') }}
-        </div>
-    @endif
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">

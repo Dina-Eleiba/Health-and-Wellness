@@ -4483,7 +4483,12 @@ ol {
 
 .secondary {
     font-size: 20px;
-    margin-left: 34px;
+
+}
+
+.secondary button {
+    border: none;
+
 }
 
 .quantity_item {

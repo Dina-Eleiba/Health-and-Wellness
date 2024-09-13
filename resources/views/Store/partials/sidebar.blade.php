@@ -9,7 +9,6 @@
             @endphp
             @if ($cart)
                 @foreach ($cart as $item)
-
                     <li>
                         <div class="" data-role="product-item">
                             <div class="product">
@@ -43,9 +42,15 @@
                                 </div>
 
                                 <div class="secondary">
-                                    <a href="#" class="action delete text-dark" title="Remove item">
-                                        <span><i class="fa-solid fa-xmark"></i></span>
-                                    </a>
+                                    <form method="POST" action={{ route('home.remove-from-cart', $item['product_id']) }}>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="action delete text-dark" title="Remove item">
+                                            <span><i class="fa-solid fa-xmark"></i></span>
+                                        </button>
+
+                                    </form>
+
                                 </div>
 
 

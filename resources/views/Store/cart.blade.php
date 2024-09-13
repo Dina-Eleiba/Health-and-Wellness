@@ -63,7 +63,19 @@
                                             </div>
                                         </td>
                                         <td class="cart__price">EGP {{ $item['subtotal'] }}</td>
-                                        <td class="cart__close"><span class="icon_close"></span></td>
+                                        <td class="cart__close">
+                                            <div class="secondary">
+                                                <form method="POST" action={{ route('home.remove-from-cart', $item['product_id']) }}>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="action delete text-dark" title="Remove item">
+                                                        <span><i class="fa-solid fa-xmark"></i></span>
+                                                    </button>
+
+                                                </form>
+
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
