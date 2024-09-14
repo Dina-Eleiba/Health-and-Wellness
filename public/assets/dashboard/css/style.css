@@ -14469,3 +14469,10 @@ dl {
     background-color: transparent;
     padding: 0;
 }
+
+.td-format {
+    white-space: pre-wrap !important; /* Ensure newlines in descriptions are respected */
+    word-wrap: break-word !important; /* Prevent long words from overflowing */
+}
+
+

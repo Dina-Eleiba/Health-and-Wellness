@@ -52,11 +52,12 @@
     @include('Store.partials.nav')
     <!-- Header Section End -->
     @if (session()->has('message'))
-        <div class="alert alert-success w-50 text-center m-auto">
+    <div class="my-5">
+        <div class="alert alert-success w-50 text-center  m-auto">
             {{ session('message') }}
         </div>
+    </div>
     @endif
-
     @yield('content')
 
     <!-- Footer Section Begin -->

@@ -3,10 +3,12 @@
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\SubcategoryController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -87,6 +89,18 @@ Route::controller(ProductController::class)->prefix('/dashboard/products')->name
     Route::delete('/delete/{id}', 'destroy')->name('delete-product');
 });
 
+
+// **************************Posts section*********************//
+
+Route::controller(PostController::class)->prefix('/dashboard/posts')->name('dashboard.')
+->group(function () {
+    Route::get('/', 'index')->name('posts');
+    Route::get('/create', 'create')->name('create-post');
+    Route::post('/store', 'store')->name('store-post');
+    Route::get('/edit/{id}', 'edit')->name('edit-post');
+    Route::put('/edit/{id}', 'update');
+    Route::delete('/delete/{id}', 'destroy')->name('delete-post');
+});
 
 
 

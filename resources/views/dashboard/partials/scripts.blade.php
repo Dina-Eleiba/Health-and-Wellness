@@ -14,5 +14,30 @@
    <script src="{{ asset('assets/dashboard/js/dashboard.js') }}"></script>
    <script src="{{ asset('assets/dashboard/js/main.js') }}"></script>
    <script src="{{ asset('assets/dashboard/js/todolist.js') }}"></script>
+   <script src="{{ asset('node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+
+   <script>
+    document.querySelectorAll('textarea').forEach(textarea => {
+        ClassicEditor
+            .create(textarea, {
+                toolbar: ['undo', 'redo', 'heading', 'bold', 'italic', 'underline', 'strikethrough', 'alignment',
+                    'bulletedList', 'numberedList',
+                    'imageUpload',
+                    'link', 'mediaEmbed', 'selectAll', 'alignment:left', 'alignment:right', 'alignment:center',
+                    'alignment:justify'
+                ],
+                alignment: {
+                    options: ['left', 'center', 'right', 'justify']
+                }
+            })
+            .then(editor => {
+                console.log('Editor was initialized', editor);
+            })
+            .catch(error => {
+                console.error('Error during initialization of the editor', error);
+            });
+    });
+</script>
+
    <!-- End custom js for this page -->
 @stack('js')

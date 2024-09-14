@@ -30,8 +30,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-form-label" for="price">Price</label>
-                                <input type="number" id="price" step="0.01" min="0" name="price" class="form-control"
-                                    placeholder="price" />
+                                <input type="number" id="price" step="0.01" min="0" name="price"
+                                    class="form-control" placeholder="price" />
                                 @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -60,7 +60,7 @@
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Description">{{ old('description') }}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="8" placeholder="Description">{{ old('description') }}</textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -102,8 +102,10 @@
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status">
                             <option value=""> Select Status</option>
-                            <option value="available" {{ old('status') == 'available' ? 'selected' : '' }}>Available</option>
-                            <option value="unavailable" {{ old('status') == 'unavailable' ? 'selected' : '' }}>Not Available</option>
+                            <option value="available" {{ old('status') == 'available' ? 'selected' : '' }}>Available
+                            </option>
+                            <option value="unavailable" {{ old('status') == 'unavailable' ? 'selected' : '' }}>Not
+                                Available</option>
                             <option value="sold out" {{ old('status') == 'sold out' ? 'selected' : '' }}>Sold Out</option>
                         </select>
                         @error('status')
@@ -131,3 +133,4 @@
         </div>
     </div>
 @endsection
+
