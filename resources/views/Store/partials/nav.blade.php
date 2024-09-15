@@ -54,7 +54,7 @@
                             <div class="header__top__right__cart">
                                 <a href="#" id="cart-icon"><img src="{{ asset('assets/store/img/icon/cart.png') }}"
                                         alt=""> <span>
-                                       
+
                                             {{ session()->get('cart_count') }}
                                         </span></a>
                                 <div class="cart__price">Cart: <span>EGP {{ session()->get('total') }}</span></div>
@@ -92,7 +92,7 @@
                                 <li><a href="./blog-details.html">Blog Details</a></li>
                             </ul>
                         </li> --}}
-                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="{{ route('home.blog') }}">Blog</a></li>
                         <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </nav>

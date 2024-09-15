@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Store\BlogController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\HomeController;
 use App\Http\Controllers\Store\ShopController;
@@ -36,6 +37,11 @@ Route::post('/cart', [CartController::class, 'addToCart'])
 ->name('home.add-to-cart');
 Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
 ->name('home.remove-from-cart');
+
+
+Route::get('/blog', [BlogController::class, 'index'])->name('home.blog');
+
+Route::get('/blog/{slug}', [BlogController::class, 'blog_details'])->name('home.blog-details');
 
 
 Route::middleware('auth')->group(function () {
