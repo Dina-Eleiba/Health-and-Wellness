@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Review;
 use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -60,5 +61,14 @@ class User extends Authenticatable
             set: fn (string $value) => Hash::make($value),
         );
 
+    }
+
+
+    public function Reviews() {
+        return $this->hasMany(Review::class);
+    }
+
+    public function Products() {
+        return $this->hasMany(Product::class);
     }
 }

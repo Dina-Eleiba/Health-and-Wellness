@@ -83,6 +83,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-5 ml-5">
+                    <a href="#">
+                        <button type="submit" class="primary-btn"> Leave Review</button>
+                    </a>
+                </div>
             </div>
             <div class="product__details__tab">
                 <div class="col-lg-12">
