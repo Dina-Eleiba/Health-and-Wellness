@@ -3276,7 +3276,7 @@ ol {
     top: 5px;
     height: 14px;
     width: 10px;
-    background: rgba(226, 108, 12, 0.3);
+    /* background: rgba(226, 108, 12, 0.3); */
     content: "";
 }
 
@@ -3333,8 +3333,12 @@ ol {
 }
 
 .blog__details__comment__item__text p {
-    color: #444444;
-    margin-bottom: 0;
+    color: #000000 !important;
+    font-size: 19px !important;
+    text-align: start !important;
+    margin-left: 5px;
+    padding-top: 20px !important;
+
 }
 
 .blog__details__comment__item__text .blog__details__comment__btns {

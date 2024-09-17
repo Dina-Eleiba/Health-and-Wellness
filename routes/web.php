@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Store\BlogController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\HomeController;
+use App\Http\Controllers\Store\ReviewController;
 use App\Http\Controllers\Store\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,10 @@ Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'
 
 Route::get('/contact-us', [HomeController::class, 'contactUs'])
 ->name('home.contact-us');
+
+
+Route::post('/reviews', [ReviewController::class, 'store'])
+->name('product.store-review');
 
 
 Route::get('/blog', [BlogController::class, 'index'])->name('home.blog');

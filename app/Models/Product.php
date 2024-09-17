@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,5 +33,10 @@ class Product extends Model
 
     public function Category() {
         return $this->belongsTo(Category::class);
+    }
+
+
+    public function Reviews() {
+        return $this->hasMany(Review::class);
     }
 }
