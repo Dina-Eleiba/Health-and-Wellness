@@ -21,7 +21,14 @@ class HomeController extends Controller
     }
 
 
-  
+
+    public function contactUs()
+    {
+        return view('Store.contact');
+    }
+
+
+
 
 
 }

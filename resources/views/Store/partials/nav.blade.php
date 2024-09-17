@@ -46,18 +46,27 @@
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch" ><img
+                                <a href="#" class="search-switch"><img
                                         src="{{ asset('assets/store/img/icon/search.png') }}" alt=""></a>
                                 <a href="#"><img src="{{ asset('assets/store/img/icon/heart.png') }}"
                                         alt=""></a>
                             </div>
                             <div class="header__top__right__cart">
-                                <a href="#" id="cart-icon"><img src="{{ asset('assets/store/img/icon/cart.png') }}"
-                                        alt=""> <span>
-
-                                            {{ session()->get('cart_count') }}
-                                        </span></a>
-                                <div class="cart__price">Cart: <span>EGP {{ session()->get('total') }}</span></div>
+                                <a href="#" id="cart-icon"><img
+                                        src="{{ asset('assets/store/img/icon/cart.png') }}" alt=""> <span>
+                                        @if (session()->get('cart_count', 0) > 0)
+                                            {{ session()->get('cart_count', 0) }}
+                                        @else
+                                            0
+                                        @endif
+                                    </span></a>
+                                <div class="cart__price">Cart: <span>EGP
+                                        @if (session()->get('total', 0) > 0)
+                                            {{ session()->get('total') }}
+                                        @else
+                                            0.0
+                                        @endif
+                                    </span></div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +102,7 @@
                             </ul>
                         </li> --}}
                         <li><a href="{{ route('home.blog') }}">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="{{ route('home.contact-us') }}">Contact</a></li>
                     </ul>
                 </nav>
             </div>

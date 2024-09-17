@@ -38,6 +38,9 @@ Route::post('/cart', [CartController::class, 'addToCart'])
 Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
 ->name('home.remove-from-cart');
 
+Route::get('/contact-us', [HomeController::class, 'contactUs'])
+->name('home.contact-us');
+
 
 Route::get('/blog', [BlogController::class, 'index'])->name('home.blog');
 

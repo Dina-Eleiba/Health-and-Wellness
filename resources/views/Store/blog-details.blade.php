@@ -3,25 +3,23 @@
 @section('title', 'Blog')
 
 @section('content')
-
-
     <!-- Blog Hero Begin -->
     <div class="blog-hero set-bg" data-setbg="{{ asset('assets/images/posts/' . $post->image) }}">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-7">
-                <div class="blog__hero__text">
-                    <div class="label">Recipes</div>
-                    <h2>{{ $post->title }}</h2>
-                    <ul>
-                        <li>By <span>{{ $post->created_by }}</span></li>
-                        <li>{{ $post->created_at }}</li>
-                        <li>112 Views</li>
-                    </ul>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-7">
+                    <div class="blog__hero__text">
+                        <div class="label">Recipes</div>
+                        <h2>{{ $post->title }}</h2>
+                        <ul>
+                            <li>By <span>{{ $post->created_by }}</span></li>
+                            <li>{{ $post->created_at }}</li>
+                            <li>112 Views</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- Blog Hero End -->
 
