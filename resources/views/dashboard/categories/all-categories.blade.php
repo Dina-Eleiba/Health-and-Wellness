@@ -37,8 +37,9 @@
                                         {{ $loop->iteration }}
                                     </td>
                                     <td> {{ $category->name}} </td>
-                                    <td> {{ $category->description ? $category->description : 'N/A' }} </td>
-
+                                    <td style="white-space: pre-wrap;">
+                                        {!! strip_tags($category->description) ?: 'N/A' !!}
+                                    </td>
                                     <td>
                                         <div class="d-flex justify-content-evenly">
                                             <a href="{{ route('dashboard.edit-category', $category->id) }}">
