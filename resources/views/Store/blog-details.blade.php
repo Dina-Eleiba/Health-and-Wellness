@@ -117,7 +117,7 @@
                             <a href="#">Cakes</a>
                             <a href="#">Baking</a>
                         </div>
-                        <div class="blog__details__btns">
+                        {{-- <div class="blog__details__btns">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="blog__details__btns__item">
@@ -130,8 +130,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="blog__details__author">
+                        </div> --}}
+                        {{-- <div class="blog__details__author">
                             <div class="blog__details__author__pic">
                                 <img src="img/blog/details/blog-author.jpg" alt="">
                             </div>
@@ -146,26 +146,74 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore et dolore magna aliqua.</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="blog__details__comment">
-                            <h5>03 Comment</h5>
-                            <a href="#" class="primary-btn">Leave a comment</a>
-                            <div class="blog__details__comment__item">
-                                <div class="blog__details__comment__item__pic">
-                                    <img src="img/blog/details/comment-1.jpg" alt="">
-                                </div>
-                                <div class="blog__details__comment__item__text">
-                                    <h6>Dylan Stewart</h6>
-                                    <span>26 Feb 2020</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua vel facilisis.</p>
-                                    <div class="blog__details__comment__btns">
-                                        <a href="#">Reply</a>
-                                        <a href="#">Like</a>
+                            <h5>{{ count($comments) }} Comment</h5>
+                            @auth
+                                {{-- comment --}}
+                                <section>
+                                    <div class="py-2 text-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div>
+                                                        <div>
+                                                            <div class="d-flex w-100">
+                                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                                    src="{{ asset('assets/store/img/Reviews/anonymous-user.jpg') }}"
+                                                                    alt="avatar" width="65" height="65" />
+                                                                <div class="w-100 ml-5">
+                                                                    <h5>Add a comment</h5>
+                                                                    <form action="{{ route('home.blog.store-comment') }}" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="post_id"
+                                                                            value="{{ $post->id }}" />
+                                                                        <div data-mdb-input-init class="form-outline">
+                                                                            <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-end mt-5">
+                                                                            <button type="submit" class="btn btn-danger">
+                                                                                Add Comment
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="blog__details__comment__item blog__details__comment__item--reply">
+                                </section>
+                                {{-- End of comment  --}}
+                            @endauth
+                            @if($comments->count() > 0)
+                                @foreach($comments as $comment)
+                                    <div class="blog__details__comment__item">
+                                        <div class="blog__details__comment__item__pic">
+                                            @if ($comment->user->gender == 'female')
+                                            <img src="{{ asset('assets/store/img/Reviews/female.jpg') }}"
+                                                alt="">
+                                        @else
+                                            <img src="{{ asset('assets/store/img/Reviews/male.png') }}"
+                                                alt="">
+                                        @endif
+                                        </div>
+
+                                        <div class="blog__details__comment__item__text">
+                                            <h6>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</h6>
+                                            <span>{{ $comment->created_at }}</span>
+                                            <p>{{$comment->comment}}</p>
+                                            {{-- <div class="blog__details__comment__btns">
+                                                <a href="#">Reply</a>
+                                                <a href="#">Like</a>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                            {{-- <div class="blog__details__comment__item blog__details__comment__item--reply">
                                 <div class="blog__details__comment__item__pic">
                                     <img src="img/blog/details/comment-2.jpg" alt="">
                                 </div>
@@ -179,22 +227,8 @@
                                         <a href="#">Like</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="blog__details__comment__item">
-                                <div class="blog__details__comment__item__pic">
-                                    <img src="img/blog/details/comment-3.jpg" alt="">
-                                </div>
-                                <div class="blog__details__comment__item__text">
-                                    <h6>Michael Luna</h6>
-                                    <span>26 Feb 2020</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua vel facilisis.</p>
-                                    <div class="blog__details__comment__btns">
-                                        <a href="#">Reply</a>
-                                        <a href="#">Like</a>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>

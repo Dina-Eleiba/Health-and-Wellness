@@ -47,9 +47,11 @@ Route::post('/reviews', [ReviewController::class, 'store'])
 ->name('product.store-review');
 
 
+
 Route::get('/blog', [BlogController::class, 'index'])->name('home.blog');
 
 Route::get('/blog/{slug}', [BlogController::class, 'blog_details'])->name('home.blog-details');
+Route::post('/blog/comments', [BlogController::class, 'comments'])->name('home.blog.store-comment');
 
 
 Route::middleware('auth')->group(function () {

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Comment;
 use App\Models\Review;
 use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -68,5 +69,10 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
- 
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
+
 }
