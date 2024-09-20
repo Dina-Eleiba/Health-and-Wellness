@@ -9,6 +9,7 @@
     <div class="container">
         <div class="checkout__form">
             <form action="{{route('home.save-order')}}" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
@@ -19,39 +20,41 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Fist Name<span>*</span></p>
-                                    <input type="text" name="first_name">
+                                    <input type="text" name="first_name" value="{{ $user->first_name }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Last Name<span>*</span></p>
-                                    <input type="text" name="last_name">
+                                    <input type="text" name="last_name" value="{{ $user->last_name }}">
                                 </div>
                             </div>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Street Address" class="checkout__input__add">
-                            <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Town/City<span>*</span></p>
-                            <input type="text" name="city">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Phone<span>*</span></p>
-                                    <input type="text" name="phone">
+                                    <input type="text" name="phone" value="{{ $user->phone }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="email" value="{{ $user->email }}">
                                 </div>
                             </div>
                         </div>
+                        <div class="checkout__input">
+                            <p>Address<span>*</span></p>
+                            <input type="text" name="street" placeholder="Street Address" class="checkout__input__add">
+                            <input type="text" name="apartment" placeholder="Apartment, suite, unite ect (optinal)">
+                            <input type="text" name="apartment" placeholder="Apartment, suite, unite ect (optinal)">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Town/City<span>*</span></p>
+                            <input type="text" name="city">
+                        </div>
+
                         <div class="checkout__input__checkbox">
                             <label for="acc">
                                 Create an account?
@@ -94,22 +97,25 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
-                            <div class="checkout__input__checkbox">
-                                <label for="payment">
-                                    Check Payment
-                                    <input type="checkbox" id="payment">
-                                    <span class="checkmark"></span>
-                                </label>
+                            <div>
+                                <h3 class = "mb-3">Payment Method</h3>
+                                <div class="checkout__input__checkbox">
+                                    <label for="payment">
+                                        Check Payment
+                                        <input type="radio" id="payment" name="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Paypal
+                                        <input type="radio" id="paypal"  name="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
                             </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="paypal">
-                                    Paypal
-                                    <input type="checkbox" id="paypal">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
+
                             <button type="submit" class="site-btn">PLACE ORDER</button>
                         </div>
                     </div>
