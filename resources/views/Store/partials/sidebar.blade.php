@@ -76,9 +76,8 @@
                         <li>Subtotal <span>EGP {{ session()->get('total') }}</span></li>
                         <li>Total <span>EGP {{ session()->get('total') }}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <a href="{{ route('home.checkout') }}" class="primary-btn">Proceed to checkout</a>
                     <a href="{{ route('home.cart') }}" class="primary-btn mt-3">View cart</a>
-
                 </div>
             @else
                 <h4 class="text-center mt-5"> Your cart is Empty</h4>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Store\BlogController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\HomeController;
+use App\Http\Controllers\Store\OrderController;
 use App\Http\Controllers\Store\ReviewController;
 use App\Http\Controllers\Store\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,11 @@ Route::get('/blog', [BlogController::class, 'index'])->name('home.blog');
 
 Route::get('/blog/{slug}', [BlogController::class, 'blog_details'])->name('home.blog-details');
 Route::post('/blog/comments', [BlogController::class, 'comments'])->name('home.blog.store-comment');
+
+
+Route::get('/checkout', [OrderController::class , 'checkout'])->name('home.checkout');
+
+Route::post('/checkout', [OrderController::class , 'saveOrder'])->name('home.save-order');
 
 
 Route::middleware('auth')->group(function () {

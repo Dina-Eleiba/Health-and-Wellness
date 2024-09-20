@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers\Store;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class OrderController extends Controller
+{
+    public function checkout() {
+        return view('store.checkout');
+    }
+
+
+    public function saveOrder(Request $request) {
+        dd($request->all());
+    }
+}
