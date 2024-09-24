@@ -14,54 +14,54 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard') }}">
+        <li class="nav-item ">
+            <a class="nav-link " href="{{ route('dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.users') }}">
+        <li class="nav-item ">
+            <a class="nav-link " href="{{ route('dashboard.users') }}">
                 <span class="menu-title">Users</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.categories') }}">
+        <li class="nav-item ">
+            <a class="nav-link " href="{{ route('dashboard.categories') }}">
                 <span class="menu-title">Categories</span>
                 <i class=" mdi mdi-folder menu-icon"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.subcategories') }}">
+        <li class="nav-item ">
+            <a class="nav-link " href="{{ route('dashboard.subcategories') }}">
                 <span class="menu-title">Subcategories</span>
                 <i class="mdi  mdi-folder-multiple menu-icon"></i>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.brands') }}">
+        <li class="nav-item ">
+            <a class="nav-link " href="{{ route('dashboard.brands') }}">
                 <span class="menu-title">Brands</span>
                 <i class="mdi mdi-note-text menu-icon"></i>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard.products') }}">
+        <li class="nav-item ">
+            <a class="nav-link " href="{{ route('dashboard.products') }}">
                 <span class="menu-title">Products</span>
                 <i class="mdi mdi-note-text menu-icon"></i>
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item ">
             <a class="nav-link" href="{{ route('dashboard.posts') }}">
                 <span class="menu-title">Posts</span>
                 <i class="mdi mdi-note-text menu-icon"></i>
             </a>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false"
                 aria-controls="general-pages">
                 <span class="menu-title">Sub Categories</span>
@@ -77,23 +77,7 @@
                     <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
                 </ul>
             </div>
-        </li>
-        <li class="nav-item sidebar-actions">
-            <span class="nav-link">
-                <div class="border-bottom">
-                    <h6 class="font-weight-normal mb-3">Projects</h6>
-                </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
-                <div class="mt-4">
-                    <div class="border-bottom">
-                        <p class="text-secondary">Categories</p>
-                    </div>
-                    <ul class="gradient-bullet-list mt-4">
-                        <li>Free</li>
-                        <li>Pro</li>
-                    </ul>
-                </div>
-            </span>
-        </li>
+        </li> --}}
+
     </ul>
 </nav>
