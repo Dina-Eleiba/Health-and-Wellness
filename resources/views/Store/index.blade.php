@@ -9,24 +9,24 @@
     <section class="hero">
         <div class="hero__slider owl-carousel">
             <div class="hero__item set-bg" data-setbg="{{ asset('assets/store/img/hero/hero-1.jpg') }}">
-                {{-- <div class="container">
+                <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="hero__text">
-                            <h2>Making your life sweeter one bite at a time!</h2>
-                            <a href="#" class="primary-btn">Our cakes</a>
+                            <h2>Nourishing your body, one wholesome choice at a time!</h2>
+                            <a href="#" class="primary-btn">Shop Now</a>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             </div>
             <div class="hero__item set-bg" data-setbg="{{ asset('assets/store/img/hero/hero-1.jpg') }}">
                 <div class="container">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
                             <div class="hero__text">
-                                <h2>Making your life sweeter one bite at a time!</h2>
-                                <a href="#" class="primary-btn">Our cakes</a>
+                                <h2>Elevating your well-being, one healthy meal at a time with our nourishing catering!</h2>
+                                <a href="#" class="primary-btn">Shop now</a>
                             </div>
                         </div>
                     </div>
