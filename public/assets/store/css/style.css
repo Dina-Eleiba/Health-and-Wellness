@@ -492,9 +492,9 @@ ol {
     background: #111111;
 }
 
-.header__menu ul li:hover a {
+/* .header__menu ul li:hover a {
     background: #111111;
-}
+} */
 
 .header__menu ul li:hover .dropdown {
     top: 62px;

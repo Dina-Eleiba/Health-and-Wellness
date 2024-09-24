@@ -80,13 +80,13 @@
             <div class="col-lg-12">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('home.about') }}">About</a></li>
+                        <li  class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="{{ request()->routeIs('home.about') ? 'active' : '' }}"><a href="{{ route('home.about') }}">About</a></li>
                         @php
                             $categories = \App\Models\Category::whereNull('parent_id')->get();
                         @endphp
                         @foreach ($categories as $category)
-                            <li>
+                            <li class="{{ request()->routeIs('home.shop') && request()->segment(2) == $category->slug ? 'active' : '' }}">
                                 <a href="{{ route('home.shop', $category->slug) }}">{{ $category->name }}</a>
                             </li>
                         @endforeach
@@ -101,8 +101,8 @@
                                 <li><a href="./blog-details.html">Blog Details</a></li>
                             </ul>
                         </li> --}}
-                        <li><a href="{{ route('home.blog') }}">Blog</a></li>
-                        <li><a href="{{ route('home.contact-us') }}">Contact</a></li>
+                        <li class="{{ request()->routeIs('home.blog') ? 'active' : '' }}"><a href="{{ route('home.blog') }}">Blog</a></li>
+                        <li class="{{ request()->routeIs('home.contact-us') ? 'active' : '' }}"><a href="{{ route('home.contact-us') }}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
