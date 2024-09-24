@@ -36,6 +36,8 @@
                                     @enderror
                                 </div>
                             </div>
+
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
@@ -58,13 +60,12 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input type="text" name="street" class="checkout__input__add">
-
+                                <input type="text" name="address" class="checkout__input__add" value="{{ $address->address  ?? ''}}">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>floor<span>*</span></p>
-                                            <input type="number" name="floor" value="">
+                                            <input type="number" name="floor" value="{{ $address->floor ?? '' }}">
                                         </div>
                                         @error('floor')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -73,7 +74,7 @@
                                     <div class="col-lg-6">
                                         <div class="checkout__input">
                                             <p>apartment<span>*</span></p>
-                                            <input type="text" name="apartment" value="">
+                                            <input type="text" name="apartment" value="{{ $address->apartment ?? '' }}">
                                             @error('apartment')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -83,7 +84,7 @@
                             </div>
                             <div class="checkout__input">
                                 <p>region<span>*</span></p>
-                                <input type="text" name="region">
+                                <input type="text" name="region" value="{{ $address->region ?? '' }}">
                                 @error('region')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -92,7 +93,8 @@
                             <div class="checkout__input">
                                 <p>Order notes</p>
                                 <input type="text" name="notes"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                                    placeholder="Notes about your order, e.g. special notes for delivery."
+                                    >
                             </div>
 
                         </div>

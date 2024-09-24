@@ -24,7 +24,6 @@
                                 @auth
                                     <li>{{ Auth::user()->first_name }} <span class="arrow_carrot-down"></span>
                                         <ul>
-                                            <li>Profile</li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Store;
 
-use App\Models\User;
-use App\Models\Order;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreOrderRequest;
+use App\Models\Order;
+use App\Models\User;
+use App\Models\Order_item;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -13,28 +15,16 @@ class OrderController extends Controller
     public function checkout()
     {
         $user_id = Auth::user()->id;
-        $user = User::findOrFail($user_id);
-        return view('store.checkout', compact('user'));
+        $user = User::find($user_id);
+        $address = $user->addresses->last();
+        return view('store.checkout', compact('user', 'address'));
     }
 
 
     public function saveOrder(Request $request)
     {
-
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'address' => 'required',
-            'floor' => 'required',
-            'apartment' => 'required',
-            'region' => 'required',
-        ]);
-
         $user_id = Auth::user()->id;
         $user = User::findOrFail($user_id);
-
         $user->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -42,8 +32,7 @@ class OrderController extends Controller
             'phone' => $request->phone,
         ]);
 
-        $user->addresses->updateOrCreate(
-
+        $user->addresses()->updateOrCreate(
             [
                 'user_id' => $user->id,
                 'address' => $request->address,
@@ -54,11 +43,28 @@ class OrderController extends Controller
         );
 
         $order['user_id'] = $user_id;
+        $order['notes'] = $request->notes;
         $totalPrice = 0;
+        $cart = session()->get('cart', []);
+        foreach ($cart as $item) {
+            $totalPrice += $item['price'] * $item['quantity'];
+        }
+        $order['total_price'] = $totalPrice;
+        $ordered = Order::create($order);
+        $orderId = $ordered->id;
 
-        Order::create($order);
-        
 
-
+        foreach ($cart as $item) {
+            Order_item::create([
+                'order_id' => $orderId,
+                'product_id' => $item['product_id'],
+                'item_type' => 'product',
+                'quantity' => $item['quantity'],
+                'price' => $item['price'],
+                'discount' => $item['discount'] ?? 0,
+            ]);
+        }
+        session()->forget('cart');
+        return redirect()->back()->with('message', 'order has been placed successfully');
     }
 }
