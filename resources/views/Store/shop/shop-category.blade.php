@@ -76,7 +76,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="shop__last__option">
+            {{-- <div class="shop__last__option">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="shop__pagination">
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <!-- Shop Section End -->

@@ -11,8 +11,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="about__video set-bg" data-setbg="img/about-video.jpg">
-                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
+                <div class="about__video set-bg" data-setbg="{{ asset('assets/store/img/video-img.JPG') }}">
+                    <a href="https://www.youtube.com/watch?v=QYcw8QbYj8o"
                     class="play-btn video-popup"><i class="fa fa-play"></i></a>
                 </div>
             </div>
@@ -62,7 +62,7 @@
 </section>
 <!-- About Section End -->
 
-<!-- Testimonial Section Begin -->
+{{-- <!-- Testimonial Section Begin -->
 <section class="testimonial spad">
     <div class="container">
         <div class="row">
@@ -289,6 +289,6 @@
         </div>
     </div>
 </section>
-<!-- Team Section End -->
+<!-- Team Section End --> --}}
 
 @endsection
