@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -16,24 +18,52 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        //still has things to add if user is login
+
         $product = Product::where('id', $request->product_id)->first();
-        $cart = session()->get('cart', []);
-        $cart[$request->product_id] = [
-            'product_id' => $request->product_id,
-            'name' => $product->name,
-            'price' => $product->price,
-            'quantity' => $request->quantity,
-            'image' => $product->image,
-            'subtotal' => $product->price * $request->quantity,
-        ];
-        $cart_count = count($cart);
-        session()->put([
-            'cart' => $cart,
-            'cart_count' => $cart_count
-        ]);
-        $total = collect($cart)->sum('subtotal');
-        session()->put('total', $total);
+
+
+        if (Auth::check()) {
+            $userId = auth()->id();
+            $existingCartItem = Cart::where('user_id', $userId)
+                ->where('product_id', $request->product_id)
+                ->first();
+            if ($existingCartItem) {
+                $existingCartItem->quantity += $request->quantity;
+                $existingCartItem->save();
+            } else {
+                Cart::create([
+                    'user_id' => $userId,
+                    'product_id' => $request->product_id,
+                    'price' => $product->price,
+                    'quantity' => $request->quantity,
+                ]);
+            }
+            $cartItems = Cart::where('user_id', $userId)->get();
+            $cart_count = $cartItems->count();
+            $total = $cartItems->sum('subtotal');
+
+            session()->put([
+                'cart_count' => $cart_count,
+                'total' => $total
+            ]);
+        } else {
+            $cart = session()->get('cart', []);
+            $cart[$request->product_id] = [
+                'product_id' => $request->product_id,
+                'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => $request->quantity,
+                'image' => $product->image,
+                'subtotal' => $product->price * $request->quantity,
+            ];
+            $cart_count = count($cart);
+            session()->put([
+                'cart' => $cart,
+                'cart_count' => $cart_count
+            ]);
+            $total = collect($cart)->sum('subtotal');
+            session()->put('total', $total);
+        }
         return redirect()->back()->with(['message' => 'Product added to cart successfully']);
     }
 
@@ -53,7 +83,8 @@ class CartController extends Controller
                     'cart' => $cart,
                     'cart_count' => $cart_count,
                     'total' => $total,
-                ]);
+                ]
+            );
             return redirect()->back()->with(['message' => 'Product deleted from cart successfully']);
         }
         return redirect()->back()->with(['message' => 'Product not found in cart']);
