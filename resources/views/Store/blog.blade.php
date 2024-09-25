@@ -30,12 +30,12 @@
                     </div>
                     @endforeach
 
-                    <div class="shop__pagination">
+                    {{-- <div class="shop__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
                         <a href="#"><span class="arrow_carrot-right"></span></a>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-4">
                     <div class="blog__sidebar">

@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::middleware(['auth', 'admin'])->group(function () {
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // **************************Users section*********************//
@@ -104,7 +107,7 @@ Route::controller(PostController::class)->prefix('/dashboard/posts')->name('dash
 
 
 
-
+});
 
 
 

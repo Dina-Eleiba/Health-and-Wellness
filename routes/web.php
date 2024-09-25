@@ -25,41 +25,47 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['auth'])->group(function () {
+
+
+    Route::post('/reviews', [ReviewController::class, 'store'])
+    ->name('product.store-review');
+
+    Route::post('/blog/comments', [BlogController::class, 'comments'])->name('home.blog.store-comment');
+    Route::get('/checkout', [OrderController::class, 'checkout'])->name('home.checkout');
+    Route::post('/checkout', [OrderController::class, 'saveOrder'])->name('home.save-order');
+});
+
+
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'AboutPage'])->name('home.about');
 Route::get('/categories/{slug}', [ShopController::class, 'index'])->name('home.shop');
 Route::get('/categories/{category}/{subcategory}', [ShopController::class, 'shopByCategory'])
-->name('home.shop.products');
+    ->name('home.shop.products');
 
 Route::get('/categories/{category}/{subcategory}/products/{slug}', [ShopController::class, 'ProductDetails'])
-->name('home.shop.product-details');
+    ->name('home.shop.product-details');
 
 Route::get('/cart', [CartController::class, 'viewCart'])
-->name('home.cart');
+    ->name('home.cart');
 Route::post('/cart', [CartController::class, 'addToCart'])
-->name('home.add-to-cart');
+    ->name('home.add-to-cart');
 Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
-->name('home.remove-from-cart');
+    ->name('home.remove-from-cart');
 
 Route::get('/contact-us', [ContactController::class, 'contactUs'])
-->name('home.contact-us');
+    ->name('home.contact-us');
 Route::post('/contact-us', [ContactController::class, 'contactForm'])
-->name('home.contact-form');
+    ->name('home.contact-form');
 
-Route::post('/reviews', [ReviewController::class, 'store'])
-->name('product.store-review');
 
 
 
 Route::get('/blog', [BlogController::class, 'index'])->name('home.blog');
 
 Route::get('/blog/{slug}', [BlogController::class, 'blog_details'])->name('home.blog-details');
-Route::post('/blog/comments', [BlogController::class, 'comments'])->name('home.blog.store-comment');
 
-
-Route::get('/checkout', [OrderController::class , 'checkout'])->name('home.checkout');
-
-Route::post('/checkout', [OrderController::class , 'saveOrder'])->name('home.save-order');
 
 
 // Route::middleware('auth')->group(function () {
@@ -70,4 +76,4 @@ Route::post('/checkout', [OrderController::class , 'saveOrder'])->name('home.sav
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
