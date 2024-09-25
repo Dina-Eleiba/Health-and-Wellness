@@ -21,7 +21,7 @@ class OrderController extends Controller
     }
 
 
-    public function saveOrder(Request $request)
+    public function saveOrder(StoreOrderRequest $request)
     {
         $user_id = Auth::user()->id;
         $user = User::findOrFail($user_id);
@@ -44,6 +44,7 @@ class OrderController extends Controller
 
         $order['user_id'] = $user_id;
         $order['notes'] = $request->notes;
+        $order['payment_method'] = $request->payment_method;
         $totalPrice = 0;
         $cart = session()->get('cart', []);
         foreach ($cart as $item) {
@@ -64,7 +65,9 @@ class OrderController extends Controller
                 'discount' => $item['discount'] ?? 0,
             ]);
         }
-        session()->forget('cart');
+        session()->forget(['cart', 'cart_count', 'total']);
         return redirect()->back()->with('message', 'order has been placed successfully');
+
+
     }
 }
