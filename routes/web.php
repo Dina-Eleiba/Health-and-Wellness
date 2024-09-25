@@ -29,9 +29,15 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::post('/reviews', [ReviewController::class, 'store'])
-    ->name('product.store-review');
+        ->name('product.store-review');
 
     Route::post('/blog/comments', [BlogController::class, 'comments'])->name('home.blog.store-comment');
+    Route::get('/cart', [CartController::class, 'viewCart'])
+        ->name('home.cart');
+    Route::post('/cart', [CartController::class, 'addToCart'])
+        ->name('home.add-to-cart');
+    Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
+        ->name('home.remove-from-cart');
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('home.checkout');
     Route::post('/checkout', [OrderController::class, 'saveOrder'])->name('home.save-order');
 });
@@ -47,12 +53,7 @@ Route::get('/categories/{category}/{subcategory}', [ShopController::class, 'shop
 Route::get('/categories/{category}/{subcategory}/products/{slug}', [ShopController::class, 'ProductDetails'])
     ->name('home.shop.product-details');
 
-Route::get('/cart', [CartController::class, 'viewCart'])
-    ->name('home.cart');
-Route::post('/cart', [CartController::class, 'addToCart'])
-    ->name('home.add-to-cart');
-Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
-    ->name('home.remove-from-cart');
+
 
 Route::get('/contact-us', [ContactController::class, 'contactUs'])
     ->name('home.contact-us');
