@@ -80,18 +80,32 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="contact__form">
-                        <form action="#">
+                        <form action="{{ route('home.contact-form') }}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name">
+                                    @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
+
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Email">
+                                    <input type="text" placeholder="Email" name="email">
+                                    @error('email')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
+
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Message"></textarea>
+                                    <textarea placeholder="Message" name="message"></textarea>
+                                    @error('message')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                     <button type="submit" class="site-btn">Send Us</button>
+
                                 </div>
+
                             </div>
                         </form>
                     </div>

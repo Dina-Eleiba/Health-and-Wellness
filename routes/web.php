@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Store\BlogController;
 use App\Http\Controllers\Store\CartController;
+use App\Http\Controllers\Store\ContactController;
 use App\Http\Controllers\Store\HomeController;
 use App\Http\Controllers\Store\OrderController;
 use App\Http\Controllers\Store\ReviewController;
@@ -40,9 +41,10 @@ Route::post('/cart', [CartController::class, 'addToCart'])
 Route::delete('/remove-from-cart/{id}', [CartController::class, 'removeFromCart'])
 ->name('home.remove-from-cart');
 
-Route::get('/contact-us', [HomeController::class, 'contactUs'])
+Route::get('/contact-us', [ContactController::class, 'contactUs'])
 ->name('home.contact-us');
-
+Route::post('/contact-us', [ContactController::class, 'contactForm'])
+->name('home.contact-form');
 
 Route::post('/reviews', [ReviewController::class, 'store'])
 ->name('product.store-review');
@@ -60,11 +62,11 @@ Route::get('/checkout', [OrderController::class , 'checkout'])->name('home.check
 Route::post('/checkout', [OrderController::class , 'saveOrder'])->name('home.save-order');
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 
 
