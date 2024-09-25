@@ -108,7 +108,7 @@
                             <li>Subtotal <span>EGP {{ session()->get('total') }}</span></li>
                             <li>Total <span>EGP {{ session()->get('total') }}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="{{ route('home.checkout') }}" class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
