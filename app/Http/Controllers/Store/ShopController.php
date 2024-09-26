@@ -23,7 +23,13 @@ class ShopController extends Controller
         $subcategory = Category::where('slug', $subcategory)->first();
         $products = $subcategory->products()->paginate(9);
         $subcategories = $category->descendants()->paginate(6);
-        return view('Store.shop.shop', compact('category', 'subcategory', 'products', 'subcategories'));
+        $meals = $subcategory->meals->groupBy('day_of_week');
+        if($category->name === 'Healthy Shoping') {
+            return view('Store.shop.shop', compact('category', 'subcategory', 'products', 'subcategories'));
+        }
+        else {
+            return view('Store.shop.meals', compact('meals', 'subcategory'));
+        }
     }
 
 
@@ -36,4 +42,6 @@ class ShopController extends Controller
             ->where('id', '!=', $product->id)->paginate(4);
         return view('Store.shop.product-details', compact('product', 'category', 'relatedProducts', 'reviews'));
     }
+
+
 }

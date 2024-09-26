@@ -28,3 +28,4 @@
     <link rel="stylesheet" href="{{ asset('assets/store/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/store/css/style.css') }}" type="text/css">
 </head>
+@stack('css')
