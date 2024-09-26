@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\MealController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\SubcategoryController;
@@ -105,6 +106,19 @@ Route::controller(PostController::class)->prefix('/dashboard/posts')->name('dash
     Route::delete('/delete/{id}', 'destroy')->name('delete-post');
 });
 
+
+
+// **************************Meals section*********************//
+
+Route::controller(MealController::class)->prefix('/dashboard/meals')->name('dashboard.')
+->group(function () {
+    Route::get('/', 'index')->name('meals');
+    Route::get('/create', 'create')->name('create-meal');
+    Route::post('/store', 'store')->name('store-meal');
+    Route::get('/edit/{id}', 'edit')->name('edit-meal');
+    Route::put('/edit/{id}', 'update');
+    Route::delete('/delete/{id}', 'destroy')->name('delete-meal');
+});
 
 
 });

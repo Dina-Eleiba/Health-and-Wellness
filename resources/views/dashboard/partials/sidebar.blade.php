@@ -3,7 +3,7 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    @if ($user->gender == 'female')
+                    @if (Auth::user()->gender == 'female')
                         <img src="{{ asset('assets/store/img/Reviews/female.jpg') }}" alt="">
                     @else
                         <img src="{{ asset('assets/store/img/Reviews/male.png') }}" alt="">
@@ -62,6 +62,14 @@
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('dashboard.posts') }}">
                 <span class="menu-title">Posts</span>
+                <i class="mdi mdi-note-text menu-icon"></i>
+            </a>
+        </li>
+
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('dashboard.meals') }}">
+                <span class="menu-title">meals</span>
                 <i class="mdi mdi-note-text menu-icon"></i>
             </a>
         </li>

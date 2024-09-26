@@ -10,9 +10,18 @@ class Meal extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'is_vegetarian',
+        'is_daily_special',
+        'day_of_week',
+        'category_id'
+    ];
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }
