@@ -58,6 +58,14 @@
         </div>
     </div>
     @endif
+
+    @if (session()->has('fail'))
+    <div class="my-5">
+        <div class="alert alert-danger w-50 text-center  m-auto">
+            {{ session('fail') }}
+        </div>
+    </div>
+    @endif
     @yield('content')
 
     <!-- Footer Section Begin -->
