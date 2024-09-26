@@ -56,30 +56,36 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($products as $product)
-                    <div class="col-lg-3 col-md-6 col-sm-6 text-center">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg">
-                                <a
-                                    href="{{ route('home.shop.product-details', [$category->slug, $subcategory->slug, $product->slug]) }}">
-                                    <img class="product__item__pic"
-                                        src ="{{ asset('assets/images/products/' . $product->image) }}">
-                                </a>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a
-                                        href="{{ route('home.shop.product-details', [$category->slug, $subcategory->slug, $product->slug]) }}">{{ $product->name }}</a>
-                                </h6>
-                                <div class="">{{ $product->quantity }} {{ $product->weight_unit }} </div>
+                @if($products->count() > 0)
+                    @foreach ($products as $product)
+                        <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg">
+                                    <a
+                                        href="{{ route('home.shop.product-details', [$category->slug, $subcategory->slug, $product->slug]) }}">
+                                        <img class="product__item__pic"
+                                            src ="{{ asset('assets/images/products/' . $product->image) }}">
+                                    </a>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a
+                                            href="{{ route('home.shop.product-details', [$category->slug, $subcategory->slug, $product->slug]) }}">{{ $product->name }}</a>
+                                    </h6>
+                                    <div class="">{{ $product->quantity }} {{ $product->weight_unit }} </div>
 
-                                <div class="product__item__price">{{ $product->price }} EGP </div>
-                            </div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
+                                    <div class="product__item__price">{{ $product->price }} EGP </div>
+                                </div>
+                                <div class="cart_add">
+                                    <a href="#">Add to cart</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @else
+                <div class="col-lg-12 text-center">
+                    <h2>No products found</h2>
+                </div>
+                @endif
 
             </div>
             {{-- <div class="shop__last__option">

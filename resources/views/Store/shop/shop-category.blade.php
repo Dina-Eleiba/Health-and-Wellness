@@ -33,8 +33,9 @@
                                 <select>
                                     <option value="">Categories</option>
                                     @foreach ($subcategories as $subcategory)
-                                    <option value="">{{ $subcategory->name  }}</option>
+                                        <option value="">{{ $subcategory->name }}</option>
                                     @endforeach
+
                                 </select>
                                 <input type="text" placeholder="Search">
                                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -59,16 +60,24 @@
                 <h3> Browse by categories</h3>
             </div>
             <div class="row">
+               
                 @foreach ($subcategories as $subcategory)
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <a href="{{ route('home.shop.products', [$category->slug , $subcategory->slug]) }}">
+                        <a href="{{ route('home.shop.products', [$category->slug, $subcategory->slug]) }}">
                             <div class="product__item">
                                 <div class="set-bg">
-                                    <img class="product__item__pic" src ="{{ asset('assets/images/subcategories/' . $subcategory->image) }}">
+                                    <img class="product__item__pic"
+                                        src ="{{ asset('assets/images/subcategories/' . $subcategory->image) }}">
                                 </div>
                                 <div class="text-center mt-2">
                                     <p>{{ $subcategory->name }}</p>
                                 </div>
+                                @if ($category->name === 'Healthy Catering')
+                                <div class="text-center">
+                                    <a href="#" class="btn site-btn text-success">subscribe</a>
+                                </div>
+
+                                @endif
                             </div>
 
                         </a>
