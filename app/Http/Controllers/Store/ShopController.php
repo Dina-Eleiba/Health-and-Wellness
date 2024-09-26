@@ -7,9 +7,9 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+
 class ShopController extends Controller
 {
-
     public function index($slug)
     {
         $category = Category::where('slug', $slug)->first();
@@ -22,7 +22,8 @@ class ShopController extends Controller
         $category = Category::where('slug', $category)->first();
         $subcategory = Category::where('slug', $subcategory)->first();
         $products = $subcategory->products()->paginate(9);
-        return view('Store.shop.shop', compact('category', 'subcategory', 'products'));
+        $subcategories = $category->descendants()->paginate(6);
+        return view('Store.shop.shop', compact('category', 'subcategory', 'products', 'subcategories'));
     }
 
 

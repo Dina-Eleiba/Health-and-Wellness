@@ -1121,6 +1121,7 @@ ol {
 
 .product__item {
     margin-bottom: 40px;
+    height: 440px;
 }
 
 .product__item:hover .product__item__pic .product__label span {
@@ -1171,10 +1172,12 @@ ol {
     padding-top: 40px;
     text-align: center;
     position: relative;
+    height: 159px;
 }
 
 .product__item__text h6 {
     margin-bottom: 16px;
+    height:40px;
 }
 
 .product__item__text h6 a {
