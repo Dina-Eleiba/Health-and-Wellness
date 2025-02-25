@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->longText('description');
             $table->integer('quantity');
-            $table->string('weight_unit');
+            $table->string('size');
             $table->decimal('price', 10, 2);
             $table->string('image');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');

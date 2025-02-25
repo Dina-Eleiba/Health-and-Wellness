@@ -36,6 +36,13 @@ Route::middleware(['auth'])->group(function () {
         ->name('home.remove-from-cart');
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('home.checkout');
     Route::post('/checkout', [OrderController::class, 'saveOrder'])->name('home.save-order');
+
+
+
+    Route::get('/{slug}/subscribe/', [OrderController::class, 'subscribe'])->name('home.subscribe');
+    Route::post('/meals/subscribe', [OrderController::class, 'saveMealOrder'])->name('home.save-meal-plan');
+
+
     Route::post('stripe', [PaymentController::class, 'stripePayment'])->name('stripe.Payment');
 });
 

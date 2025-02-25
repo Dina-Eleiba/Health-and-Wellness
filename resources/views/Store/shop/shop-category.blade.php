@@ -60,7 +60,7 @@
                 <h3> Browse by categories</h3>
             </div>
             <div class="row">
-               
+
                 @foreach ($subcategories as $subcategory)
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <a href="{{ route('home.shop.products', [$category->slug, $subcategory->slug]) }}">
@@ -74,9 +74,8 @@
                                 </div>
                                 @if ($category->name === 'Healthy Catering')
                                 <div class="text-center">
-                                    <a href="#" class="btn site-btn text-success">subscribe</a>
+                                    <a href="{{ route('home.subscribe', $category->slug) }}" class="btn site-btn text-success">subscribe</a>
                                 </div>
-
                                 @endif
                             </div>
 

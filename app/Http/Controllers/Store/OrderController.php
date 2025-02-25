@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
+use App\Models\Category;
+use App\Models\Meal;
 use App\Models\Order;
-use App\Models\User;
 use App\Models\Order_item;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,7 +69,67 @@ class OrderController extends Controller
         }
         session()->forget(['cart', 'cart_count', 'total']);
         return redirect()->back()->with('message', 'order has been placed successfully');
+    }
 
 
+
+    public function subscribe($slug)
+    {
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $address = $user->addresses->last();
+        $category = Category::where('slug', $slug)->first();
+        $subcategories = $category->descendants()->paginate(6);
+        return view('store.subscribe', compact('user', 'address', 'category', 'subcategories'));
+    }
+
+
+    public function saveMealOrder(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $user = User::findOrFail($user_id);
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+
+        $user->addresses()->updateOrCreate(
+            [
+                'user_id' => $user->id,
+                'address' => $request->address,
+                'floor' => $request->floor,
+                'apartment' => $request->apartment,
+                'region' => $request->region,
+            ]
+        );
+
+        $order['user_id'] = $user_id;
+        $order['notes'] = $request->notes;
+        $order['payment_method'] = $request->payment_method;
+        $totalPrice = 0;
+        $meals = Meal::whereIn('id', $request->product_id)
+            ->where('category_id', $request->category_id)
+            ->get();
+        foreach ($meals as $meal) {
+            $totalPrice += $meal->price;
+        }
+        $order['total_price'] = $totalPrice;
+        $order['status'] = 'pending';
+        $ordered = Order::create($order);
+        $orderId = $ordered->id;
+
+        $newOrder = Order::create($order);
+
+        foreach ($meals as $meal) {
+            $newOrder->orderItems()->create([
+                'meal_id' => $meal->id,
+                'quantity' => 1,
+                'price' => $meal->price,
+            ]);
+        }
+
+        return redirect()->back()->with('message', 'order has been placed successfully');
     }
 }
